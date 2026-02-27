@@ -93,18 +93,21 @@ void copiazaBibcuSupMare(struct Biblioteca* vector, char nrElemente, float supMi
 	}
 }
 
-struct Biblioteca getPrimulElementConditionat(struct Biblioteca* vector, int nrElemente, const char* conditie) {
+struct Biblioteca getPrimulElementConditionat(struct Biblioteca* vector, int nrElemente, const char* numeleB) {
 	//trebuie cautat elementul care indeplineste o conditie
 	//dupa atributul de tip char*. Acesta este returnat.
 
 	//DE CAUTAT BIBLIOTECA CU UN ANUMIT NUME CU STRCPMP.
 	//ESTE O FUNCTIE CARE PRIMESTE DOI PARAMETRII DE TIP CHAR*, SI FACE DIFERENTA INTRE CODURILE ASCII SI RETURNEAZA O VALOARE, 0 DACA SUNT LA FEL
 
-
-	struct Biblioteca s;
-	s.id = 1;
-
-	return s;
+	for (int i = 0; i < nrElemente; i++) {
+		if (strcmp(vector[i].nume, numeleB) == 0) {
+			return copiazaBiblioteca(vector[i]);
+		}
+	}
+	struct Biblioteca b;
+	b = initializare(-1, -1, "N/A", -1, -1);
+	return b ;
 }
 
 
@@ -123,6 +126,11 @@ int main() {
 	vectorBiblioteci[4] = initializare(5, 73, "Mihai Viteazu", 97, 2);
 
 	afisareVector(vectorBiblioteci, numarBiblioteci);
+
+	struct Biblioteca cautata = getPrimulElementConditionat(vectorBiblioteci, numarBiblioteci, "abc");
+	afisare(cautata);
+
+
 	int nrCopiate = 3;
 	struct Biblioteca* copie = copiazaPrimeleNElemente(vectorBiblioteci, numarBiblioteci, nrCopiate);
 	printf("\nElementele vect cu primele %d elemente copiate\n", nrCopiate);
@@ -138,6 +146,8 @@ int main() {
 	afisareVector(vBibcuSupMAre, nrBibCuSupM);
 
 	dezalocare(&vBibcuSupMAre, &nrBibCuSupM);
+
+	
 
 	return 0;
 }
