@@ -18,20 +18,5 @@
     <ClCompile Include="Seminar01.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LucruIndividual02.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="seminar02.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="seminar03.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="seminar4.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="masini.txt" />
   </ItemGroup>
 </Project>
