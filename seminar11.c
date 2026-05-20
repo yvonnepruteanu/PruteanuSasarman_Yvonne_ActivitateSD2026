@@ -6,6 +6,8 @@
 //trebuie sa folositi fisierul masini.txt
 //sau va creati un alt fisier cu alte date
 
+//GRAF
+
 struct StructuraMasina {
 	int id;
 	int nrUsi;
@@ -184,10 +186,30 @@ void dezalocareNoduriGraf(void* listaPrincipala) {
 
 }
 
+
+void afisareVecini(NodS* vecin) {
+	while (vecin) {
+		printf("%d ", vecin->info->info.id);
+		vecin = vecin->next;
+	}
+	printf("\n");
+}
+
+void afisareGraf(NodP* listaP) {
+	while (listaP) {
+		afisareMasina(listaP->info);
+		afisareVecini(listaP->vec);
+		listaP = listaP->next;
+
+	}
+}
+
+
+
 int main() {
 
 	NodP* listaP = citireNoduriMasiniDinFisier("masini.txt");
 	citireMuchiiDinFisier("muchii.txt", listaP);
-	
+	afisareGraf(listaP);
 	return 0;
 }
